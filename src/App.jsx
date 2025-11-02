@@ -220,7 +220,7 @@ export default function App(){
       </main>
     </div>
   );
-}}
+}
 
 function itemsPreview(items){
   return items.slice(0,12).map(it=> (
@@ -229,4 +229,4 @@ function itemsPreview(items){
       <div className="text-xs text-neutral-400">{it.description}</div>
     </div>
   ))
-}}
+}
