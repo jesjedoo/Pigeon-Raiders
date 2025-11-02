@@ -1,16 +1,10 @@
-import { exec } from "child_process";
 import fs from "fs";
+import { execSync } from "child_process";
 
-const vitePath = "./node_modules/.bin/vite";
-
-if (fs.existsSync(vitePath)) {
-  exec(`chmod +x ${vitePath}`, (error) => {
-    if (error) {
-      console.log(⚠️ Impossible d'exécuter chmod (probablement sous Windows). Ignoré.");
-    } else {
-      console.log("✅ Permissions corrigées pour vite");
-    }
-  });
-} else {
-  console.log("ℹ️ Vite n'est pas encore installé, rien à corriger.");
+try {
+  // Rendre vite exécutable
+  execSync("chmod +x ./node_modules/.bin/vite");
+  console.log("✅ Permissions fixées pour vite.");
+} catch (error) {
+  console.log("⚠️ Impossible d'exécuter chmod (probablement sous Windows). Ignoré.");
 }
